@@ -27,7 +27,7 @@ public class EmailNotificationServicetest {
 
     @Test
     public void testGetLogsByReceiver() {
-        String receiver = "test@example.com";
+        String receiver = "usuario@gmail.com";
 
         NotificationLog log = new NotificationLog();
         log.setReceiver(receiver);
@@ -51,7 +51,7 @@ public class EmailNotificationServicetest {
         String type = "EMAIL";
 
         NotificationLog log = new NotificationLog();
-        log.setReceiver("alguien@gmail.com");
+        log.setReceiver("usuario@gmail.com");
         log.setType(type);
         log.setMessage("Mensaje");
         log.setStatus("Enviado");
@@ -71,7 +71,7 @@ public class EmailNotificationServicetest {
     @Test
     public void testGetAllLogs() {
         NotificationLog log = new NotificationLog();
-        log.setReceiver("correo@test.com");
+        log.setReceiver("usuario@gmail.com");
 
         List<NotificationLog> logs = List.of(log);
         when(repository.findAll()).thenReturn(logs);
@@ -86,7 +86,7 @@ public class EmailNotificationServicetest {
     public void testUpdateNotificationLog() {
         Long id = 1L;
         NotificationLog updatedLog = new NotificationLog();
-        updatedLog.setReceiver("new@example.com");
+        updatedLog.setReceiver("usuario@gmail.com");
         updatedLog.setMessage("Nuevo mensaje");
         updatedLog.setType("EMAIL");
         updatedLog.setTimestamp(LocalDateTime.now());
