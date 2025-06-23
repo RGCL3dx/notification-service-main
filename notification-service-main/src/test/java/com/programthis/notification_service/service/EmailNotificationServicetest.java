@@ -58,19 +58,16 @@ public class EmailNotificationServicetest {
         log.setSubject("Asunto");
         log.setTimestamp(LocalDateTime.now());
 
-        // --- CORRECCIÓN AQUÍ ---
-        // Simula la llamada al método específico findByType, no a findAll.
+
         when(repository.findByType(type)).thenReturn(List.of(log));
 
         List<NotificationLog> result = service.getLogsByType(type);
 
         assertEquals(1, result.size());
         assertEquals(type, result.get(0).getType());
-        // Verifica que el método correcto fue llamado
         verify(repository).findByType(type);
     }
 
-    // ... (El resto de tus pruebas están bien y no necesitan cambios)
     @Test
     public void testGetAllLogs() {
         NotificationLog log = new NotificationLog();
