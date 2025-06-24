@@ -108,9 +108,7 @@ public class EmailNotificationServicetest {
     void testDeleteNotificationLog() {
         Long id = 1L;
         when(repository.existsById(id)).thenReturn(true);
-
         boolean result = service.deleteNotificationLog(id);
-
         assertTrue(result);
         verify(repository).deleteById(id);
     }
