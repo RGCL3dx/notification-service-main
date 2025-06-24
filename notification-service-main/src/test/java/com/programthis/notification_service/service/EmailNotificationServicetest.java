@@ -12,7 +12,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class EmailNotificationServicetest {
+class EmailNotificationServiceTest {
 
     @InjectMocks
     private EmailNotificationService service;
@@ -21,12 +21,12 @@ public class EmailNotificationServicetest {
     private NotificationLogRepository repository;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void testGetLogsByReceiver() {
+    void testGetLogsByReceiver() {
         String receiver = "usuario@gmail.com";
 
         NotificationLog log = new NotificationLog();
@@ -47,7 +47,7 @@ public class EmailNotificationServicetest {
     }
 
     @Test
-    public void testGetLogsByType() {
+    void testGetLogsByType() {
         String type = "EMAIL";
 
         NotificationLog log = new NotificationLog();
@@ -57,7 +57,6 @@ public class EmailNotificationServicetest {
         log.setStatus("Enviado");
         log.setSubject("Asunto");
         log.setTimestamp(LocalDateTime.now());
-
 
         when(repository.findByType(type)).thenReturn(List.of(log));
 
@@ -69,7 +68,7 @@ public class EmailNotificationServicetest {
     }
 
     @Test
-    public void testGetAllLogs() {
+    void testGetAllLogs() {
         NotificationLog log = new NotificationLog();
         log.setReceiver("usuario@gmail.com");
 
@@ -83,7 +82,7 @@ public class EmailNotificationServicetest {
     }
 
     @Test
-    public void testUpdateNotificationLog() {
+    void testUpdateNotificationLog() {
         Long id = 1L;
         NotificationLog updatedLog = new NotificationLog();
         updatedLog.setReceiver("usuario@gmail.com");
@@ -105,7 +104,7 @@ public class EmailNotificationServicetest {
     }
 
     @Test
-    public void testDeleteNotificationLog() {
+    void testDeleteNotificationLog() {
         Long id = 1L;
         when(repository.existsById(id)).thenReturn(true);
 

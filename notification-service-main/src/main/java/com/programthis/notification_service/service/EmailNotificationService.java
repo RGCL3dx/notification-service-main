@@ -71,7 +71,7 @@ public boolean deleteNotificationLog(Long id) {
     return false;
 }
 
-    
+
 }
 
 
