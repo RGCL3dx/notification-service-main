@@ -12,7 +12,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class EmailNotificationServiceTest {
+public class EmailNotificationServicetest {
 
     @InjectMocks
     private EmailNotificationService service;
@@ -21,7 +21,7 @@ class EmailNotificationServiceTest {
     private NotificationLogRepository repository;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
@@ -57,6 +57,7 @@ class EmailNotificationServiceTest {
         log.setStatus("Enviado");
         log.setSubject("Asunto");
         log.setTimestamp(LocalDateTime.now());
+
 
         when(repository.findByType(type)).thenReturn(List.of(log));
 
